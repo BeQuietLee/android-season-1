@@ -5,5 +5,9 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="red">#FF0000</color>
+    <color name="mt_blue">#2BB8AA</color>
+    <color name="dp_orange">#FF7200</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="grey">#808080</color>
 </resources>

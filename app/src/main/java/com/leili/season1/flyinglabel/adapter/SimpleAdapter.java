@@ -1,4 +1,4 @@
-package com.leili.season1.adapter;
+package com.leili.season1.flyinglabel.adapter;
 
 import android.content.Context;
 import android.util.Log;
