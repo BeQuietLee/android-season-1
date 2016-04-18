@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:padding="10dp">
+
+	<LinearLayout
+		android:id="@+id/pre_edit"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:orientation="horizontal">
+
+		<EditText
+			android:id="@+id/input"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:hint="请输入文字..."
+			android:textSize="@dimen/text_size_30sp"/>
+
+		<Button
+			android:id="@+id/generate"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="生成"
+			android:textSize="@dimen/text_size_28sp"/>
+	</LinearLayout>
+
+	<TextView
+		android:id="@+id/content"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:lineSpacingMultiplier="1.1"
+		android:textColor="@color/black"
+		android:textSize="@dimen/text_size_34sp"
+		android:visibility="gone"
+		tools:text="所爱隔山海\n山海不可平"/>
+
+
+</FrameLayout>

@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.leili.season1.R;
+import com.leili.season1.customfont.activity.CustomFontActivity;
 import com.leili.season1.flyinglabel.activity.FlyingLabelActivity;
 import com.leili.season1.okhttp.activity.OkHttpActivity;
 import com.leili.season1.util.ViewUtils;
@@ -38,7 +39,8 @@ public class HomepageActivity extends Activity {
 		wholeLayout.addView(inflateListItem("1", "飞入标签", "大麦app首页列表项滑入标签效果", FlyingLabelActivity.class));
 		// OkHttp
 		wholeLayout.addView(inflateListItem("2", "OkHttp", "请求百度天气API", OkHttpActivity.class));
-
+		// 自定义字体
+		wholeLayout.addView(inflateListItem("3", "自定义字体", "方块字之美", CustomFontActivity.class));
 	}
 
 	View inflateListItem(String index, String title, String desc, final Class<?> cls) {

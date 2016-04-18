@@ -24,10 +24,13 @@
 
 		<activity
 			android:name=".flyinglabel.activity.FlyingLabelActivity"
-			android:label="FlyingLabel" />
+			android:label="FlyingLabel"/>
 		<activity
 			android:name=".okhttp.activity.OkHttpActivity"
-			android:label="OkHttp" />
+			android:label="OkHttp"/>
+		<activity
+			android:name=".customfont.activity.CustomFontActivity"
+			android:label="CustomFont"/>
 
 	</application>
 
