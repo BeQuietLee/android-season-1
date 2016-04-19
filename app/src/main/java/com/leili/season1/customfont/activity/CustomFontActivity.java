@@ -33,7 +33,7 @@ public class CustomFontActivity extends Activity {
 	}
 
 	private void initData() {
-		face = Typeface.DEFAULT.createFromAsset(getAssets(), "fonts/Elephant_Handwritten_Pen_Chinese.ttf");
+		face = Typeface.DEFAULT.createFromAsset(getAssets(), "fonts/Elephant_Handwritten_Chinese.ttf");
 	}
 
 	private void initViews() {
