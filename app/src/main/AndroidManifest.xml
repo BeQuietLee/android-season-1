@@ -31,6 +31,9 @@
 		<activity
 			android:name=".customfont.activity.CustomFontActivity"
 			android:label="CustomFont"/>
+		<activity
+			android:name=".uithread.activity.UpdateUIActivity"
+			android:label="UpdateUI"/>
 
 	</application>
 
