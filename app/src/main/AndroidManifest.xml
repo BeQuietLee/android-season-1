@@ -34,6 +34,12 @@
 		<activity
 			android:name=".uithread.activity.UpdateUIActivity"
 			android:label="UpdateUI"/>
+		<activity
+			android:name=".dragview.activity.DragViewActivity"
+			android:label="DragView"/>
+		<activity
+			android:name=".randomsort.activity.RandomSortActivity"
+			android:label="RandomSort"/>
 
 	</application>
 

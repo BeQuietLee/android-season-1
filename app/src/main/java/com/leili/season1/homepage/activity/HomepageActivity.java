@@ -11,8 +11,10 @@ import android.widget.TextView;
 
 import com.leili.season1.R;
 import com.leili.season1.customfont.activity.CustomFontActivity;
+import com.leili.season1.dragview.activity.DragViewActivity;
 import com.leili.season1.flyinglabel.activity.FlyingLabelActivity;
 import com.leili.season1.okhttp.activity.OkHttpActivity;
+import com.leili.season1.randomsort.activity.RandomSortActivity;
 import com.leili.season1.uithread.activity.UpdateUIActivity;
 import com.leili.season1.util.ViewUtils;
 
@@ -44,6 +46,10 @@ public class HomepageActivity extends Activity {
 		wholeLayout.addView(inflateListItem("3", "自定义字体", "方块字之美", CustomFontActivity.class));
 		// 非UI线程更新UI
 		wholeLayout.addView(inflateListItem("4", "UI更新", "非UI线程操作UI", UpdateUIActivity.class));
+		// 拖拽View
+		wholeLayout.addView(inflateListItem("5", "拖拽View", "自定义拖拽View", DragViewActivity.class));
+		// 俄罗斯轮盘赌
+		wholeLayout.addView(inflateListItem("6", "随机排序", "接受命运的裁决吧少年", RandomSortActivity.class));
 	}
 
 	View inflateListItem(String index, String title, String desc, final Class<?> cls) {

@@ -12,4 +12,6 @@
 	<dimen name="text_size_36sp">36sp</dimen>
 	<dimen name="text_size_40sp">40sp</dimen>
 	<dimen name="text_size_50sp">50sp</dimen>
+	<dimen name="text_size_80sp">80sp</dimen>
+	<dimen name="text_size_120sp">120sp</dimen>
 </resources>
