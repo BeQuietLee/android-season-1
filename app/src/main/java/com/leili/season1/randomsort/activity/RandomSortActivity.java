@@ -93,13 +93,14 @@ public class RandomSortActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				userAdapter.setSelectedUser(position);
+				tvRandNum.setText("" + ((User) userAdapter.getItem(position)).getNum());
 			}
 		});
 		lvUsers.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 				AlertDialog.Builder removeDlg = new AlertDialog.Builder(RandomSortActivity.this);
-				removeDlg.setTitle("确认删除？");
+				removeDlg.setTitle("确认删除“" + ((User) userAdapter.getItem(position)).getName() + "”？");
 				final int mPosition = position;
 				removeDlg.setPositiveButton("是的", new DialogInterface.OnClickListener() {
 					@Override
@@ -122,7 +123,6 @@ public class RandomSortActivity extends Activity {
 		tvAddUser.setGravity(Gravity.CENTER);
 		tvAddUser.setOnClickListener(addUserListener);
 		lvUsers.addFooterView(tvAddUser);
-		userAdapter.addUser(new User("Alice", -1));
 	}
 
 	private void initData() {

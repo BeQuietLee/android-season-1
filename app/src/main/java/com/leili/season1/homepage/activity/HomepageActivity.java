@@ -49,7 +49,7 @@ public class HomepageActivity extends Activity {
 		// 拖拽View
 		wholeLayout.addView(inflateListItem("5", "拖拽View", "自定义拖拽View", DragViewActivity.class));
 		// 俄罗斯轮盘赌
-		wholeLayout.addView(inflateListItem("6", "随机排序", "接受命运的裁决吧少年", RandomSortActivity.class));
+		wholeLayout.addView(inflateListItem("6", "随机排序", "搏一搏，单车变摩托", RandomSortActivity.class));
 	}
 
 	View inflateListItem(String index, String title, String desc, final Class<?> cls) {

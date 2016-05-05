@@ -11,12 +11,10 @@ import com.leili.season1.R;
 import com.leili.season1.randomsort.entity.User;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.zip.Inflater;
 
 /**
  * 随机用户Adapter
@@ -89,9 +87,9 @@ public class UserAdapter extends BaseAdapter {
 		viewHolder.tvUserName.setText(user.getName());
 		viewHolder.tvNum.setText("" + user.getNum());
 		if (user == selectedUser) {
-			convertView.setBackgroundColor(context.getResources().getColor(R.color.red));
+			convertView.setBackgroundColor(context.getResources().getColor(R.color.light_grey));
 		} else {
-			convertView.setBackgroundColor(context.getResources().getColor(R.color.green));
+			convertView.setBackgroundColor(context.getResources().getColor(R.color.white));
 		}
 		return convertView;
 	}
