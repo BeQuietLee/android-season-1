@@ -24,41 +24,11 @@ public class UserAdapter extends BaseAdapter {
 
 	private Context context;
 	private List<User> userList;
-	private Map<Integer, User> userMap;
 	private User selectedUser;
 
 	public UserAdapter(Context context, List<User> userList) {
 		this.context = context;
 		this.userList = userList;
-	}
-
-	public void addUser(User user) {
-		initData();
-		addUserIntoListAndMap(user);
-		notifyDataSetChanged();
-	}
-
-	public void updateUser(int userId, int userNum) {
-		if (userId == selectedUser.getId()) {
-			selectedUser.setNum(userNum);
-		}
-		User mUser = userMap.get(userId);
-		mUser.setNum(userNum);
-		notifyDataSetChanged();
-	}
-
-	private void addUserIntoListAndMap(User user) {
-		userList.add(user);
-		userMap.put(user.getId(), user);
-	}
-
-	private void initData() {
-		if (userList == null) {
-			userList = new ArrayList<>();
-		}
-		if (userMap == null) {
-			userMap = new HashMap<>();
-		}
 	}
 
 	@Override
@@ -109,21 +79,6 @@ public class UserAdapter extends BaseAdapter {
 
 	public void setSelectedUser(User selectedUser) {
 		this.selectedUser = selectedUser;
-	}
-
-	public void setSelectedUser(int position) {
-		setSelectedUser(userList.get(position));
-		notifyDataSetChanged();
-	}
-
-	public void removeUser(int position) {
-		userList.remove(position);
-		notifyDataSetChanged();
-	}
-
-	public void sortUsersByNumUp() {
-		Collections.sort(userList);
-		notifyDataSetChanged();
 	}
 
 }

@@ -1,24 +1,29 @@
 package com.leili.season1.randomsort.entity;
 
-import java.util.Comparator;
-
 /**
  * 随机用户
  * Created by lei.li on 4/29/16.
  */
 public class User implements Comparable<User> {
 
-	private static int count = 0;
+	private static int index = 0;
+
+	private static final int DEFAULT_NUM = -1; // -1表示未经初始化
 	private int id;
 	private String name;
-	private int num;
+	private int num = DEFAULT_NUM;
+
+	public User(String name) {
+		this(name, DEFAULT_NUM);
+	}
 
 	public User(String name, int num) {
-		this.id = count++;
+		this.id = index++;
 		this.name = name;
 		this.num = num;
 	}
 
+	// 按照num从小到大排序
 	@Override
 	public int compareTo(User another) {
 		return num < another.num ? -1 : (num == another.num ? 0 : 1);
@@ -26,10 +31,6 @@ public class User implements Comparable<User> {
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getName() {

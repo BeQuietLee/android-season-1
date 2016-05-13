@@ -21,20 +21,25 @@ import com.leili.season1.util.ViewUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 /**
+ * 抽签并排序
  * Created by lei.li on 4/29/16.
  */
 public class RandomSortActivity extends Activity {
 	private static final String TAG = RandomSortActivity.class.getSimpleName();
+
 	private ListView lvUsers; // 用户列表
 	private TextView tvRandNum; // 两位随机数
-	private Button btnGetRand, btnSortUsers; // 抽签，排序
-	private Random rand = new Random(System.currentTimeMillis());
+	private Button btnGetRand, btnSortUsers; // 取号，排序
+	private Random rand = new Random(System.currentTimeMillis()); // SEED
 	private static final int MAX = 100; // 获取0~99之间的随机数
 	private UserAdapter userAdapter;
+	private List<User> userList;
+	private User selectedUser;
 	private AlertDialog.Builder addUserDialogBuilder;
 
 	// 新增User
@@ -49,7 +54,7 @@ public class RandomSortActivity extends Activity {
 			addUserDialogBuilder.setPositiveButton("添加", new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
-					userAdapter.addUser(new User(etInput.getText().toString(), -1));
+					addUser(new User(etInput.getText().toString()));
 				}
 			});
 			addUserDialogBuilder.show();
@@ -61,11 +66,12 @@ public class RandomSortActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			int mRand = rand.nextInt(MAX);
-			if (userAdapter.getSelectedUser() == null) {
+			if (selectedUser == null) {
 				ViewUtils.showShortToast(RandomSortActivity.this, "请先在左侧选择一名用户");
 			} else {
-				userAdapter.updateUser(userAdapter.getSelectedUser().getId(), mRand);
-				updateRandNum(mRand);
+				selectedUser.setNum(mRand);
+				tvRandNum.setText("" + mRand);
+				userAdapter.notifyDataSetChanged();
 			}
 		}
 	};
@@ -74,7 +80,8 @@ public class RandomSortActivity extends Activity {
 	private View.OnClickListener sortListener = new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			userAdapter.sortUsersByNumUp();
+			Collections.sort(userList);
+			userAdapter.notifyDataSetChanged();
 		}
 	};
 
@@ -82,17 +89,19 @@ public class RandomSortActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.random_sort_activity);
+		initData();
 		initViews();
 	}
 
 	private void initViews() {
-		userAdapter = new UserAdapter(this, new ArrayList<User>());
 		lvUsers = (ListView) findViewById(R.id.users_list);
 		lvUsers.setAdapter(userAdapter);
 		lvUsers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				userAdapter.setSelectedUser(position);
+				selectedUser = userList.get(position);
+				userAdapter.setSelectedUser(selectedUser);
+				userAdapter.notifyDataSetChanged();
 				tvRandNum.setText("" + ((User) userAdapter.getItem(position)).getNum());
 			}
 		});
@@ -105,7 +114,12 @@ public class RandomSortActivity extends Activity {
 				removeDlg.setPositiveButton("是的", new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						userAdapter.removeUser(mPosition);
+						if (selectedUser == userList.get(mPosition)) {
+							selectedUser = null;
+							userAdapter.setSelectedUser(null);
+						}
+						userList.remove(mPosition);
+						userAdapter.notifyDataSetChanged();
 					}
 				});
 				removeDlg.show();
@@ -126,7 +140,8 @@ public class RandomSortActivity extends Activity {
 	}
 
 	private void initData() {
-
+		userList = new ArrayList<>();
+		userAdapter = new UserAdapter(this, userList);
 	}
 
 	// 更新随机数tv
@@ -135,4 +150,15 @@ public class RandomSortActivity extends Activity {
 			tvRandNum.setText("" + randNum);
 		}
 	}
+
+	private void addUser(User user) {
+		userList.add(user);
+		userAdapter.notifyDataSetChanged();
+	}
+
+	private void removeUser(int i) {
+		userList.remove(i);
+		userAdapter.notifyDataSetChanged();
+	}
+
 }
