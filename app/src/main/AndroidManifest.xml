@@ -40,6 +40,9 @@
 		<activity
 			android:name=".randomsort.activity.RandomSortActivity"
 			android:label="RandomSort"/>
+		<activity
+			android:name=".jni.activity.JNIActivity"
+			android:label="RandomSort"/>
 
 	</application>
 

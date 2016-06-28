@@ -13,6 +13,7 @@ import com.leili.season1.R;
 import com.leili.season1.customfont.activity.CustomFontActivity;
 import com.leili.season1.dragview.activity.DragViewActivity;
 import com.leili.season1.flyinglabel.activity.FlyingLabelActivity;
+import com.leili.season1.jni.activity.JNIActivity;
 import com.leili.season1.okhttp.activity.OkHttpActivity;
 import com.leili.season1.randomsort.activity.RandomSortActivity;
 import com.leili.season1.uithread.activity.UpdateUIActivity;
@@ -50,6 +51,8 @@ public class HomepageActivity extends Activity {
 		wholeLayout.addView(inflateListItem("5", "拖拽View", "自定义拖拽View", DragViewActivity.class));
 		// 俄罗斯轮盘赌
 		wholeLayout.addView(inflateListItem("6", "随机排序", "搏一搏，单车变摩托", RandomSortActivity.class));
+		// Dynamic JNI
+		wholeLayout.addView(inflateListItem("7", "JNI", "动态加载", JNIActivity.class));
 	}
 
 	View inflateListItem(String index, String title, String desc, final Class<?> cls) {
