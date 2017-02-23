@@ -15,9 +15,11 @@ import com.leili.season1.dragview.activity.DragViewActivity;
 import com.leili.season1.flyinglabel.activity.FlyingLabelActivity;
 import com.leili.season1.jni.activity.JNIActivity;
 import com.leili.season1.okhttp.activity.OkHttpActivity;
+import com.leili.season1.ptrcontainer.activity.PTRContainerActivity;
 import com.leili.season1.randomsort.activity.RandomSortActivity;
 import com.leili.season1.uithread.activity.UpdateUIActivity;
 import com.leili.season1.util.ViewUtils;
+import com.leili.season1.viewvisibility.activity.ViewVisibilityActivity;
 
 /**
  * 首页
@@ -53,6 +55,10 @@ public class HomepageActivity extends Activity {
 		wholeLayout.addView(inflateListItem("6", "随机排序", "搏一搏，单车变摩托", RandomSortActivity.class));
 		// Dynamic JNI
 		wholeLayout.addView(inflateListItem("7", "JNI", "动态加载", JNIActivity.class));
+		// Visibility
+		wholeLayout.addView(inflateListItem("8", "Visibility", "外层ViewGroup与内层View的可见性关系", ViewVisibilityActivity.class));
+		// PTRContainer
+		wholeLayout.addView(inflateListItem("9", "下拉刷新", "下拉刷新容器", PTRContainerActivity.class));
 	}
 
 	View inflateListItem(String index, String title, String desc, final Class<?> cls) {

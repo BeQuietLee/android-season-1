@@ -42,7 +42,14 @@
 			android:label="RandomSort"/>
 		<activity
 			android:name=".jni.activity.JNIActivity"
-			android:label="RandomSort"/>
+			android:label="JNI"/>
+		<activity
+			android:name=".viewvisibility.activity.ViewVisibilityActivity"
+			android:label="Visibility"/>
+
+		<activity
+			android:name=".ptrcontainer.activity.PTRContainerActivity"
+			android:label="PTRContainer"/>
 
 	</application>
 
